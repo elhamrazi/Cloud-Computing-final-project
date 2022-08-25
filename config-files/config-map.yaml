@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  conf.json: |
+    {
+      "expiration_time": 120,
+      "port": "5000",
+      "db_name": "test",
+      "db_host": "mongo",
+      "db_port": 27017
+    }

@@ -1,0 +1,6 @@
+{
+    "port": 5000,
+    "expiration_time": 200,
+    "db_host": "localhost",
+    "db_port": 27017
+}

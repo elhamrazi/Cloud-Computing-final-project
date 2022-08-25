@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    app: app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: app
+          image: daryazare/cc_final_app:latest
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /app/config.json
+              subPath: config.json
+              name: config-map
+              readOnly: true
+      volumes:
+        - name: config-map
+          configMap:
+            name: app-config
